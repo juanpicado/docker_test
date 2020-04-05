@@ -9,21 +9,20 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
+    - uses: actions/checkout@v2
     - name: Checkout
-      uses: actions/checkout@v2
-
+    - uses: docker/build-action@v1
     - name: build
-      uses: docker/build-action@v1
       with:
         repository: jotadeveloper/test1
         tags: v1
-    - name: login
     - uses: docker/login-action@v1
+    - name: login
       with:
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_PASSWORD }}
-    - name: push
     - uses: docker/push-action@v1
+    - name: push
       with:
         registry: myregistry
         tags: ${{ outputs.build.tags }}
