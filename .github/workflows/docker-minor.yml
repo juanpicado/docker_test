@@ -1,4 +1,4 @@
-name: Docker Latest
+name: Docker Minor
 
 on:
   push:
@@ -16,7 +16,7 @@ jobs:
       run: echo ::set-output name=tag::${GITHUB_REF:10}
     - name: Check output
       env:
-        RELEASE_VERSION: ${{ GITHUB_REF }}
+        RELEASE_VERSION: ${GITHUB_REF}
       run: |
         echo $RELEASE_VERSION
         echo ${{ steps.vars.outputs.tag }}
