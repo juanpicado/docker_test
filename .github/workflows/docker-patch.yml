@@ -13,4 +13,4 @@ jobs:
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_PASSWORD }}
         repository: jotadeveloper/test1
-        tags: v2
+        tags: master
