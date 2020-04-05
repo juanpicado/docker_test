@@ -9,18 +9,17 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: build
-       id: build
-       uses: docker/build-action@v1
-       with:
-         repository: jotadeveloper/test1
-         tags: v1
-     - name: login
-       uses: docker/login-action@v1
-       with:
-         registry: myregistry
-         username: ${{ DOCKER_USERNAME }}
-         password: ${{ DOCKER_PASSWORD }}
-     - name: push
-       uses: docker/push-action@v1
-       with:
-         tags: ${{ outputs.build.tags }}
+      uses: docker/build-action@v1
+      with:
+        repository: jotadeveloper/test1
+        tags: v1
+    - name: login
+      uses: docker/login-action@v1
+      with:
+        registry: myregistry
+        username: ${{ DOCKER_USERNAME }}
+        password: ${{ DOCKER_PASSWORD }}
+    - name: push
+      uses: docker/push-action@v1
+      with:
+        tags: ${{ outputs.build.tags }}
