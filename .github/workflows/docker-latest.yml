@@ -25,5 +25,4 @@ jobs:
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_PASSWORD }}
         repository: jotadeveloper/test1
-        tag_with_ref: true
         push: ${{ steps.vars.outputs.tag }}
