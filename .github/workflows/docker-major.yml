@@ -2,6 +2,8 @@ name: Docker Major
 
 on:
   push:
+    branches:
+      - dev
     tags:
       - 'v*.*.*'
 jobs:
