@@ -1,4 +1,4 @@
-name: Docker Latest
+name: Docker Major
 
 on:
   push:
@@ -20,6 +20,9 @@ jobs:
       run: |
         echo $RELEASE_VERSION
         echo ${{ steps.vars.outputs.tag }}
+        echo ${{ github.ref }}
+        echo ${{ github.head_ref }}
+        echo ${{ github.actor }}
     - uses: docker/build-push-action@v1
       with:
         username: ${{ secrets.DOCKER_USERNAME }}
